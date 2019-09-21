@@ -54,5 +54,37 @@ window.addEventListener('click',function(){
         document.querySelector(`div[data-CheckId="${checklistId}"]`).remove()
     })
     }
-    
+    else if(this.event.target.className == 'addCheckItem')
+    {
+        let div = document.createElement('div')
+        let buttonId=event.target.dataset["button"]
+
+        checkItemInput = document.createElement('input')
+        checkItemInput.setAttribute('type','text')
+
+        let insertButton = document.createElement('button')
+        insertButton.innerText='Add-Chek-Item'
+        insertButton.setAttribute('class','insertCheckItem')
+
+        div.appendChild(checkItemInput)
+        div.appendChild(insertButton)
+        document.querySelector(`button[data-button="${buttonId}"]`).parentElement.appendChild(div)
+        document.querySelector(`button[data-button="${buttonId}"]`).remove()
+    }
+    else if(this.event.target.className=='insertCheckItem')
+    {
+       let checkListItemvalue = event.path[1].children["0"].value
+       let checkListId=event.path[2].dataset["listid"]
+       let checkList = document.querySelector(`div[data-listId="${checkListId}"]`)
+       let checkListItems = checkList.querySelector(".checklist-items")
+       fetch(`https://api.trello.com/1/checklists/${checkListId}/checkItems?name=${checkListItemvalue}&pos=bottom&checked=false&key=${key}&token=${token}`,{method:'POST'})
+        .then((response)=>response.json())
+        .then((list)=>{
+            let div = document.createElement('div')
+            div.setAttribute('class',"checklist-item")
+            div.setAttribute('data-CheckId',list["id"])
+            div.innerHTML=`<input type=checkbox><p>${list["name"]}</p><button class='delete-btn'>X</button>`
+            checkListItems.appendChild(div)
+        })
+    }
 })
