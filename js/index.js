@@ -44,3 +44,15 @@ function getChecklist(){
     })
 }
 
+window.addEventListener('click',function(){
+    if(event.target.className=='delete-btn')
+    {
+        console.log(this.event.path[1].dataset['checkid'])
+        let checklistId = event.path[1].dataset['checkid']; 
+    fetch(`https://api.trello.com/1/cards/${cardId}/checkItem/${checklistId}?key=${key}&token=${token}`,{method:'DELETE'})
+    .then((res)=>{
+        document.querySelector(`div[data-CheckId="${checklistId}"]`).remove()
+    })
+    }
+    
+})
