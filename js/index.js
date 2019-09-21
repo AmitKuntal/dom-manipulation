@@ -99,5 +99,41 @@ window.addEventListener('click',function(){
         fetch(`https://api.trello.com/1/checklists/${checkListId}?key=${key}&token=${token}`,{method:'DELETE'})
         .then((response)=>document.querySelector(`div[data-listid="${checkListId}"]`).remove())
     }
-    
+    else if(this.event.target.className == 'addCheckList')
+    {
+        if(this.event.path[1].children["0"].value=='')
+        {
+            alert("Please enter the name of checklist")
+        }
+        else{
+            let checkListNameValue = this.event.path[1].children["0"].value
+
+            fetch(`https://api.trello.com/1/checklists?idCard=${cardId}&name=${checkListNameValue}&pos=bottom&key=${key}&token=${token}`,{method:"POST"})
+            .then((response)=>response.json())
+            .then((element)=>{
+            let checklist = document.createElement('div')
+            checklist.setAttribute('class',"checklist")
+            checklist.setAttribute('data-listId',element["id"])
+
+            let checkListName = document.createElement('div')
+            checkListName.setAttribute('class',"checklist-name")
+            let pTag = document.createElement('p')
+            pTag.innerText = checkListNameValue
+            let btn = document.createElement('button')
+            btn.innerText= "Delete"
+            btn.setAttribute('class',"deleteCheckist")
+            checkListName.appendChild(pTag)
+            checkListName.appendChild(btn)
+            checklist.appendChild(checkListName)
+            let addButton = document.createElement('button')
+            addButton.innerText= "Add Item"
+            addButton.setAttribute('data-Button',element['pos'])
+            addButton.setAttribute('class',"addCheckItem")
+            checklist.appendChild(addButton)
+
+            document.querySelector(".checklists").appendChild(checklist)
+            })
+            
+        }
+    }
 })
