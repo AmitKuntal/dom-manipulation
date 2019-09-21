@@ -38,6 +38,9 @@ button {
 .checklist-name{
     font-weight: bold;
     font-size: 2vw;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
     font-family: 'Ubuntu', sans-serif;
     margin-bottom: 1vw;
 

@@ -15,7 +15,13 @@ function getChecklist(){
 
             let checkListName = document.createElement('div')
             checkListName.setAttribute('class',"checklist-name")
-            checkListName.innerText = element["name"]
+            let pTag = document.createElement('p')
+            pTag.innerText = element["name"]
+            let btn = document.createElement('button')
+            btn.innerText= "Delete"
+            btn.setAttribute('class',"deleteCheckist")
+            checkListName.appendChild(pTag)
+            checkListName.appendChild(btn)
             checklist.appendChild(checkListName)
 
             let checkListItems = document.createElement('div')
@@ -87,4 +93,11 @@ window.addEventListener('click',function(){
             checkListItems.appendChild(div)
         })
     }
+    else if(this.event.target.className == 'deleteCheckist')
+    {
+        let checkListId = event.path[2].dataset["listid"]
+        fetch(`https://api.trello.com/1/checklists/${checkListId}?key=${key}&token=${token}`,{method:'DELETE'})
+        .then((response)=>document.querySelector(`div[data-listid="${checkListId}"]`).remove())
+    }
+    
 })
