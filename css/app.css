@@ -1,0 +1,75 @@
+.container{
+    width: 50vw;
+    position: relative;
+    left: 15vw;
+    top:5vh;
+    display: flex;
+    flex-flow: row wrap;
+}
+.add-checklist
+{
+    width: 100%;
+    height: auto;
+}
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+.checklists{
+    max-width: 50vw;
+    background-color: aliceblue;
+    padding: .5vw;
+}
+.checklist{
+    padding: 1vw;
+    /* background-color: gainsboro; */
+    margin-bottom: 1vw;
+    border: .010vw;
+    border-style:solid;
+
+}
+
+.checklist-name{
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 1vw;
+
+}
+.checklist-items{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+.checklist-item{
+    display:flex;
+    flex-flow: row wrap;
+    padding-left: .5vw;
+    width: 100%;
+    margin-bottom: 1vw;
+    font-size: 1.3vw;
+}
+.delete-btn,input[type=checkbox]{
+    width: 2vw;
+    background-color: red;
+    height: 2vw;
+    margin: 0;
+    padding:0;
+    background-color: none;
+}
+
+p{
+    padding-left: 1vw;
+    margin: 0;
+    width: 80%;
+}
+input[type=text]
+{
+    font-size: 2vw;
+}
