@@ -6,20 +6,107 @@
     display: flex;
     flex-flow: row wrap;
 }
+.addCheckList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin-bottom: 2em;
+}
+.addCheckList > input[type=text]{
+    border: none;
+    border-bottom: gray;
+    border-bottom-style: solid;
+    border-bottom-width: .1em;
+    font-size: 1.3em;
+    padding: .5em;
+}
+.addCheckList > input[type=submit]
+{
+    background-color:gray;
+    border-radius: 1em;
+    font-size: 1.3em;
+    padding-left: 2em;
+    padding-right: 2em;
+    color: white;
+}
 .add-checklist
 {
     width: 100%;
     height: auto;
 }
+.checklist-name
+{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+}
+.listName{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width:70%;
+    text-align: center;
+    color: darkblue;
+}
+.deleteCheckist{
+    font-family: 'Righteous', cursive;
+    background-color: red;
+    font-size: .5em;
+    width: 3vw;
+    height: 4vh;
+
+}
+.updateChecklist{
+    display: flex;
+    flex-flow: row nowrap;
+    width:90%;
+    justify-content: space-between;
+}
+.updateChecklist > input[type=text]{
+    border: none;
+    border-bottom: gray;
+    border-bottom-style: solid;
+    border-bottom-width: .1em;
+    font-size: .9em;
+    margin-right: 1em;
+    padding: .5em;
+    background-color: aliceblue;
+}
+.updateChecklist > input[type=submit]
+{
+    background-color: #4CAF50;
+    color: white;
+    font-family: 'Righteous', cursive;
+    font-size: 1em;
+}
+.addCheckItem{
+    padding:1.5vw;
+}
+.checklist > form{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between; 
+    padding:0;
+}
+.insertCheckItem{
+    margin-left: 1vw;
+    background-color: #4CAF50;
+    border: 0;
+}
+.cancel{
+    margin-left: 1vw;
+    background-color: red;
+    border: 0;
+    color: white;
+}
 button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size:1em;
   }
 .checklists{
     max-width: 50vw;
@@ -30,7 +117,8 @@ button {
     padding: 1vw;
     /* background-color: gainsboro; */
     margin-bottom: 1vw;
-    border: .010vw;
+    border: .10vw;
+    border-radius: 1%;
     border-style:solid;
 
 }
@@ -42,7 +130,7 @@ button {
     flex-flow: row wrap;
     justify-content: space-between;
     font-family: 'Ubuntu', sans-serif;
-    margin-bottom: 1vw;
+    margin-bottom: 2vw;
 
 }
 .checklist-items{
@@ -71,8 +159,4 @@ p{
     padding-left: 1vw;
     margin: 0;
     width: 80%;
-}
-input[type=text]
-{
-    font-size: 2vw;
 }
